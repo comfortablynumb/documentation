@@ -10462,6 +10462,8 @@ components:
           type: string
         eventType:
           $ref: '#/components/schemas/SyntheticsTestProcessStatus'
+        failure:
+          $ref: '#/components/schemas/SyntheticsTestResultFailure'
         httpStatusCode:
           description: The API test HTTP status code.
           format: int64
@@ -10985,6 +10987,8 @@ components:
         error:
           description: Error returned for the browser test.
           type: string
+        failure:
+          $ref: '#/components/schemas/SyntheticsTestResultFailure'
         passed:
           description: Whether or not the browser test was conducted.
           type: boolean
@@ -12325,6 +12329,18 @@ components:
           type: string
       required:
       - url
+      type: object
+    SyntheticsTestResultFailure:
+      description: The API test failure details.
+      properties:
+        code:
+          description: The API test failure title.
+          example: DNS
+          type: string
+        message:
+          description: The API test failure description.
+          example: Error during DNS resolution (ENOTFOUND).
+          type: string
       type: object
     SyntheticsTiming:
       description: 'Object containing all metrics and their values collected for a
